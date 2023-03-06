@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import VideoForm from './videoform/VideoForm';
 import VideoDetails from './videodetails/VideoDetails';
 import ChatInterface from './chat/ChatInterface';
+import { ReactComponent as Logo } from './assets/Tube.GPT_logo.svg';
 import './App.css';
 
 function App() {
@@ -42,8 +43,9 @@ function App() {
     };
 
   return (
-    <div>
-      <h1>YouTube Q&amp;A</h1>
+    <div className='container'>
+       {/* logo */}
+      <div className="logo"><Logo/></div>
 
       {/* Video form */}
       <VideoForm handleVideoSubmit={handleVideoSubmit} setVideoUrl={setVideoUrl} videoUrl={videoUrl}/>

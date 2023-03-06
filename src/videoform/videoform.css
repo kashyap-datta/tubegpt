@@ -1,0 +1,40 @@
+.wrapper{
+  width: 800px;
+  background:none;
+  border-radius: 58px;
+  border: 1px solid white;
+  background: rgba(34, 34, 34, 0.5);
+  padding: 20px 20px 20px 40px; 
+}
+.wrapper>.searchbar{
+    display:flex;
+    flex-direction: row;
+    gap: 8px;
+}
+    
+input:focus,textarea:focus,select:focus{
+outline: none;
+    } 
+  
+      .linkfield{
+      width: 100%;
+      background:none;
+      color: white;
+      border: none;
+      font-size: 16px;
+      }
+    
+    .analyze_button{
+      justify-content: center;
+      align-items: center;
+      padding: 12px 32px;
+      width: 122px;
+      height: 48px;
+      background: #5561FF;
+      border-radius: 50px;
+      border: none;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      }
+

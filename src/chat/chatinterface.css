@@ -1,3 +1,4 @@
+
 .chat-history {
     display: flex;
     flex-direction: column;
@@ -26,4 +27,42 @@
     background-color: #f4f4f4;
     color: black;
   }
+
+  /* question input styling */
+  input:focus, textarea:focus, select:focus{outline: none;}
+
+  .question_input_wrapper{
+    width: 800px;
+    background:none;
+    border-radius: 58px;
+    border: 1px solid white;
+    background: rgba(34, 34, 34, 0.5);
+    padding: 20px 20px 20px 40px;
+    position: absolute;
+    bottom: 0;
+
+  }
+  .question_input_wrapper > .form_question{
+    display:flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .question_button{
+      justify-content: center;
+      align-items: center;
+      padding: 12px 32px;
+      width: 48px;
+      height: 48px;
+      background: #5561FF;
+      border-radius: 50px;
+      border: none;
+      color: white;
+  }
+
+  .question_button > .submit_cta{
+      width: 20px;
+      height: 20px;
+  }
+
   

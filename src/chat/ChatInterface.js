@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ReactComponent as Icon } from 'src/assets/send.svg';
 import './chatinterface.css';
 function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
 
@@ -37,10 +38,14 @@ function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
             </div>
           ))}
         </div>
-        <form onSubmit={handleSubmit}>
-          <input type="text" value={userInput} onChange={handleUserInput} />
-          <button type="submit">Send</button>
-        </form>
+
+        <div className='question_input_wrapper'>
+          <form className="form_question" onSubmit={handleSubmit}>
+          <input type="text" className="input_question" value={userInput} onChange={handleUserInput}/>
+          <button type="submit" className="question_button"><Icon className='submit_cta'/></button>
+          </form>
+        </div>
+        
       </div>
     );
   }
