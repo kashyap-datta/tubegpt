@@ -1,23 +1,59 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import VideoForm from './videoform/VideoForm';
+import VideoDetails from './videodetails/VideoDetails';
+import ChatInterface from './chat/ChatInterface';
 import './App.css';
 
 function App() {
+  const [videoUrl, setVideoUrl] = useState('');
+  const [videoData, setVideoData] = useState(null);
+  const [transcript, setTranscript] = useState('');
+  const [chatHistory, setChatHistory] = useState([]);
+
+  const handleVideoSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+
+      // Fetch the video details and transcript using the server API
+      const response = await fetch(`http://127.0.0.1:5000/transcript?videoUrl=${videoUrl}`)
+      .then((response)=>response.json()).then((data)=>{setTranscript(data)});
+
+      const metadataresponse = await fetch(`http://127.0.0.1:5000/metadata?videoUrl=${videoUrl}`)
+      .then((response)=>response.json()).then((data)=>{setVideoData(data)});
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+  const handleQuestionSubmit = (question, answer) => {
+    if (question.trim() !== '') {
+      setChatHistory(prevChatHistory => [
+        ...prevChatHistory, 
+        { role: 'user', message: question }
+      ]);
+    }
+    setChatHistory(prevChatHistory => [
+      ...prevChatHistory, 
+      { role: 'assistant', message: answer }
+    ]);
+    };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>YouTube Q&amp;A</h1>
+
+      {/* Video form */}
+      <VideoForm handleVideoSubmit={handleVideoSubmit} setVideoUrl={setVideoUrl} videoUrl={videoUrl}/>
+
+       {/* Video details  */}
+       {videoData && <VideoDetails videoData = {videoData}/>}
+       
+
+      {/* {transcript && <ChatInterface transcript={transcript} question={question} setQuestion = {setQuestion} setChatHistory={setChatHistory} chatHistory={chatHistory} handleChat ={handleChat} />} */}
+      {transcript && <ChatInterface transcript={transcript} onQuestionSubmit={handleQuestionSubmit} chatHistory={chatHistory} />}
     </div>
   );
 }
