@@ -5,8 +5,7 @@
     overflow-y: auto;
     height: 300px;
     padding: 10px;
-    background-color: #f4f4f4;
-    border-radius: 20px;
+    padding-bottom: 120px;
   }
   
   .message {
@@ -32,7 +31,7 @@
   input:focus, textarea:focus, select:focus{outline: none;}
 
   .question_input_wrapper{
-    width: 800px;
+    width: 1200px;
     background:none;
     border-radius: 58px;
     border: 1px solid white;
@@ -40,6 +39,7 @@
     padding: 20px 20px 20px 40px;
     position: absolute;
     bottom: 0;
+    transform: scale(0.7);
 
   }
   .question_input_wrapper > .form_question{
@@ -51,18 +51,25 @@
   .question_button{
       justify-content: center;
       align-items: center;
-      padding: 12px 32px;
-      width: 48px;
-      height: 48px;
+      width: 50px;
+      height: 50px;
       background: #5561FF;
       border-radius: 50px;
       border: none;
       color: white;
   }
+  .input_question{
+      width: 100%;
+      background:none;
+      color: white;
+      border: none;
+      font-size: 20px;
+      }
 
   .question_button > .submit_cta{
-      width: 20px;
-      height: 20px;
+    padding-top: 3px;
+      width: 24px;
+      height: 24px;
   }
 
   

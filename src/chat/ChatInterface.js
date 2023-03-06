@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ReactComponent as Icon } from 'src/assets/send.svg';
+import { ReactComponent as Icon } from '../assets/send.svg';
 import './chatinterface.css';
 function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
 
@@ -16,7 +16,7 @@ function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
       onQuestionSubmit(userInput, '');
   
       // Send user message to server and get response
-      const response = await fetch('http://localhost:5000/question', {
+      const response = await fetch('http://localhost:8080/question', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ transcript: transcript, question: userInput }) 
@@ -41,7 +41,7 @@ function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
 
         <div className='question_input_wrapper'>
           <form className="form_question" onSubmit={handleSubmit}>
-          <input type="text" className="input_question" value={userInput} onChange={handleUserInput}/>
+          <input type="text" className="input_question" placeholder='ask anything!' value={userInput} onChange={handleUserInput}/>
           <button type="submit" className="question_button"><Icon className='submit_cta'/></button>
           </form>
         </div>
