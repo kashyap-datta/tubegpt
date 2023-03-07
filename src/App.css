@@ -1,9 +1,9 @@
 .container{
   display: flex;
   flex-direction: column;
-  gap: 6rem;
   justify-content: center;
   align-content: center;
+  height: 100vh;
 }
 .logo{
   display: flex;
@@ -11,4 +11,36 @@
   align-items: center;
   width: 100%;
 
+}
+.hero_wrapper{
+  display: flex ;
+  flex-direction: column;
+  gap: 100px;
+  width:100vw;
+  
+}
+
+.header-container-video{
+flex-direction: row;
+gap:5px;
+position: sticky;
+top:0;
+}
+
+.header-container-video > .wrapper{
+width:100%;
+scale:0.8;
+} 
+.header-container-video > .logo{
+  width: fit-content;
+  scale:0.5;
+}
+
+.container-analyzed{
+  justify-content: space-between;
+  height:100vh;
+}
+
+.body-container{
+  height:100vh;
 }

@@ -12,7 +12,7 @@ function VideoForm(props) {
 
   <div className='wrapper'>
     <form onSubmit={onSubmit} className='searchbar'>
-        <input type="text" className="linkfield" placeholder="Paste your YouTube URl here" value={props.videoUrl} onChange={(event) => props.setVideoUrl(event.target.value)}/>
+        <input type="text" className="linkfield" placeholder="Paste your YouTube URL here" value={props.videoUrl} onChange={(event) => props.setVideoUrl(event.target.value)}/>
       <button type="submit" className='analyze_button'>Analyze</button>
     </form>
   </div>

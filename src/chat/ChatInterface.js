@@ -16,7 +16,7 @@ function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
       onQuestionSubmit(userInput, '');
   
       // Send user message to server and get response
-      const response = await fetch('http://localhost:8080/question', {
+      const response = await fetch('http://localhost:5000/question', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ transcript: transcript, question: userInput }) 
@@ -38,12 +38,14 @@ function ChatInterface({ transcript, onQuestionSubmit, chatHistory }) {
             </div>
           ))}
         </div>
-
+      
+      <div className='question-container'>
         <div className='question_input_wrapper'>
           <form className="form_question" onSubmit={handleSubmit}>
           <input type="text" className="input_question" placeholder='ask anything!' value={userInput} onChange={handleUserInput}/>
           <button type="submit" className="question_button"><Icon className='submit_cta'/></button>
           </form>
+        </div>
         </div>
         
       </div>

@@ -17,10 +17,10 @@ function App() {
     try {
 
       // Fetch the video details and transcript using the server API
-      const response = await fetch(`http://127.0.0.1:8080/transcript?videoUrl=${videoUrl}`)
+      const response = await fetch(`http://127.0.0.1:5000/transcript?videoUrl=${videoUrl}`)
       .then((response)=>response.json()).then((data)=>{setTranscript(data)});
 
-      const metadataresponse = await fetch(`http://127.0.0.1:8080/metadata?videoUrl=${videoUrl}`)
+      const metadataresponse = await fetch(`http://127.0.0.1:5000/metadata?videoUrl=${videoUrl}`)
       .then((response)=>response.json()).then((data)=>{setVideoData(data)});
 
     } catch (error) {
@@ -43,19 +43,24 @@ function App() {
     };
 
   return (
-    <div className='container'>
+    <div className={`container${videoData ? ' container-analyzed' : ''}`}>
+    <div className={`hero_wrapper${videoData ? ' header-container-video' : ''}`}>
        {/* logo */}
       <div className="logo"><Logo/></div>
 
       {/* Video form */}
       <VideoForm handleVideoSubmit={handleVideoSubmit} setVideoUrl={setVideoUrl} videoUrl={videoUrl}/>
+      </div>
 
+
+      {videoData &&<div className='body-container'>
        {/* Video details  */}
        {videoData && <VideoDetails videoData = {videoData}/>}
        
 
       {/* {transcript && <ChatInterface transcript={transcript} question={question} setQuestion = {setQuestion} setChatHistory={setChatHistory} chatHistory={chatHistory} handleChat ={handleChat} />} */}
       {transcript && <ChatInterface transcript={transcript} onQuestionSubmit={handleQuestionSubmit} chatHistory={chatHistory} />}
+    </div>}
     </div>
   );
 }
