@@ -22,3 +22,7 @@ This repository is a personal endeavor and serves as a learning experiment. It i
 The project is a work-in-progress, and there is room for improvement and expansion. While the current implementation showcases the core functionality, it requires further refinement to be considered a fully robust application.
 
 I hope you find this project an exciting representation of my enthusiasm for exploring cutting-edge technologies and their potential applications. Please feel free to provide feedback, and thank you for taking the time to review my work.
+
+## Acknowledgments
+
+Special thanks to OpenAI and the creators of the YouTube Transcript API for providing the tools and APIs that power this project.
