@@ -1,0 +1,17 @@
+.video-details{
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.video-details > h2 {
+font-style: inter;
+font-weight: 500;
+}
+
+.video-details > p{
+height:50px;
+font-style: inter;
+font-weight: 300;  
+font-size: small;
+text-justify:auto;
+}

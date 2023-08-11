@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './videoform.css';
 
 function VideoForm(props) {
   
@@ -8,13 +9,13 @@ function VideoForm(props) {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <label>
-        YouTube video URL:
-        <input type="text" value={props.videoUrl} onChange={(event) => props.setVideoUrl(event.target.value)} />
-      </label>
-      <button type="submit">Fetch Video</button>
+
+  <div className='wrapper'>
+    <form onSubmit={onSubmit} className='searchbar'>
+        <input type="text" className="linkfield" placeholder="Paste your YouTube URL here" value={props.videoUrl} onChange={(event) => props.setVideoUrl(event.target.value)}/>
+      <button type="submit" className='analyze_button'>Analyze</button>
     </form>
+  </div>
   );
 }
 
